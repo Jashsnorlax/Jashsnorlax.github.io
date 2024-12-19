@@ -11,7 +11,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background: linear-gradient(120deg, #f4f4f9, #e6f7ff);
             color: #333;
             line-height: 1.6;
         }
@@ -19,14 +19,15 @@
         header {
             background: linear-gradient(90deg, #008cba, #005f99);
             color: white;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            letter-spacing: 2px;
         }
 
         main {
@@ -36,27 +37,35 @@
         section {
             margin-bottom: 30px;
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #008cba;
+            text-transform: uppercase;
         }
 
         p {
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
             margin: 20px auto;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            line-height: 1.8;
         }
 
         img {
             display: block;
             margin: 20px auto;
             border-radius: 50%;
-            border: 3px solid #333;
-            width: 200px;
-            height: 200px;
+            border: 5px solid #008cba;
+            width: 220px;
+            height: 220px;
             object-fit: cover;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         ul {
@@ -68,27 +77,28 @@
         ul li {
             display: inline-block;
             margin: 10px;
-            padding: 10px 15px;
-            background: #008cba;
+            padding: 15px 20px;
+            background: linear-gradient(90deg, #008cba, #005f99);
             color: white;
-            border-radius: 5px;
+            border-radius: 10px;
             font-weight: bold;
-            transition: background 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            transition: transform 0.3s ease, background 0.3s ease;
             cursor: pointer;
         }
 
         ul li:hover {
-            background: #005f99;
             transform: scale(1.1);
+            background: linear-gradient(90deg, #005f99, #003f66);
         }
 
         table {
-            width: 80%;
+            width: 90%;
             margin: 20px auto;
             border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             background-color: #fff;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
         }
 
@@ -97,14 +107,15 @@
         }
 
         th, td {
-            padding: 12px;
+            padding: 15px;
             text-align: center;
             font-size: 1em;
         }
 
         th {
-            background-color: #333;
+            background: #008cba;
             color: #fff;
+            text-transform: uppercase;
         }
 
         tr:nth-child(even) {
@@ -117,7 +128,7 @@
             background: linear-gradient(90deg, #333, #555);
             color: white;
             margin-top: 20px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
 
         footer a {
@@ -129,6 +140,25 @@
 
         footer a:hover {
             color: #005f99;
+        }
+
+    
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #008cba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #005f99;
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -201,6 +231,8 @@
                 </tbody>
             </table>
         </section>
+
+        <button onclick="alert('Thank you for visiting my portfolio!')">Say Hello</button>
     </main>
 
     <footer>
