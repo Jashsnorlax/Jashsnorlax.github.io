@@ -29,7 +29,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             clip-path: ellipse(100% 50% at 50% 50%);
             opacity: 0;
-            animation: fadeIn 3s ease-out forwards, floatUp 5s ease-in-out infinite;
+            animation: fadeIn 3s ease-out forwards, floatUp 5s ease-in-out infinite, slideIn 2s ease-out;
         }
 
         header h1 {
@@ -77,7 +77,7 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             opacity: 0;
-            animation: fadeInUp 2s ease-out forwards, floatUp 5s ease-in-out infinite;
+            animation: fadeInUp 2s ease-out forwards, floatUp 5s ease-in-out infinite, slideUp 2s ease-in-out forwards;
         }
 
         section:hover {
@@ -116,7 +116,7 @@
             object-fit: cover;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 2s ease-out forwards, floatUp 4s ease-in-out infinite;
+            animation: fadeInUp 2s ease-out forwards, floatUp 4s ease-in-out infinite, slideInFromLeft 3s ease-out forwards;
         }
 
         img:hover {
@@ -140,7 +140,7 @@
             border-radius: 10px;
             font-weight: bold;
             font-size: 1.2em;
-            transition: transform 0.4s ease, background 0.3s ease;
+            transition: transform 0.4s ease, background 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
@@ -216,6 +216,7 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            animation: buttonBounce 2s ease-in-out infinite;
         }
 
         button:hover {
@@ -257,6 +258,56 @@
 
             100% {
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-150%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes buttonBounce {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
             }
         }
 
