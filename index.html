@@ -38,6 +38,8 @@
             letter-spacing: 3px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
             font-weight: bold;
+            opacity: 0;
+            animation: textAnimation 2s forwards, fadeIn 2s ease-out forwards;
         }
 
         header nav {
@@ -52,12 +54,13 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 600;
-            transition: color 0.4s ease, transform 0.3s ease;
+            transition: color 0.4s ease, transform 0.3s ease, text-shadow 0.3s ease;
         }
 
         header nav a:hover {
             color: #feb47b;
             transform: scale(1.1);
+            text-shadow: 0 0 15px #feb47b, 0 0 25px #feb47b;
         }
 
         main {
@@ -95,6 +98,7 @@
             font-weight: bold;
             border-bottom: 4px solid #ff4747;
             padding-bottom: 8px;
+            animation: textAnimation 2s ease-out forwards;
         }
 
         p {
@@ -104,6 +108,8 @@
             font-size: 1.2em;
             line-height: 1.8;
             color: #444;
+            opacity: 0;
+            animation: textFadeIn 2s ease-out forwards;
         }
 
         img {
@@ -143,6 +149,8 @@
             transition: transform 0.4s ease, background 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 2s ease-out forwards, textAnimation 2s ease-out forwards;
         }
 
         ul li:hover {
@@ -294,6 +302,36 @@
             to {
                 opacity: 1;
                 transform: translateX(0);
+            }
+        }
+
+        @keyframes textFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes textAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+                color: #ff4747;
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+                color: #feb47b;
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                color: #333;
             }
         }
 
