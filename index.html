@@ -8,10 +8,10 @@
     <style>
         /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #e0f7fa, #c1f0c1);
+            background: radial-gradient(circle, #f4f7fa, #e0f0f3);
             color: #333;
             line-height: 1.6;
             scroll-behavior: smooth;
@@ -20,12 +20,13 @@
 
         header {
             position: relative;
-            background: linear-gradient(90deg, #ff6f61, #ff8f4e);
+            background: linear-gradient(135deg, #ff6f61, #ff8f4e);
             color: white;
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            border-bottom: 10px solid #ff4747;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            clip-path: ellipse(100% 50% at 50% 50%);
             opacity: 0;
             animation: fadeIn 2s ease-out forwards;
         }
@@ -35,6 +36,7 @@
             font-size: 3.5rem;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
         }
 
         header nav {
@@ -42,11 +44,12 @@
         }
 
         header nav a {
-            margin: 0 15px;
+            margin: 0 20px;
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
-            transition: color 0.3s;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
         header nav a:hover {
@@ -63,10 +66,10 @@
 
         section {
             margin-bottom: 30px;
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #f7f7f7, #ffffff);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -75,15 +78,15 @@
         }
 
         section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         section::before {
             content: '';
             position: absolute;
             top: -50px;
-            right: -50px;
+            left: -50px;
             width: 150px;
             height: 150px;
             background: radial-gradient(circle, rgba(255, 126, 95, 0.5), rgba(255, 126, 95, 0));
@@ -94,13 +97,14 @@
         section h2 {
             text-align: center;
             margin-bottom: 15px;
-            color: #008cba;
+            color: #ff4747;
+            font-size: 2rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #008cba;
-            display: inline-block;
+            letter-spacing: 2px;
+            font-weight: bold;
+            border-bottom: 3px solid #ff4747;
             padding-bottom: 5px;
+            display: inline-block;
         }
 
         p {
@@ -109,13 +113,14 @@
             margin: 20px auto;
             font-size: 1.2em;
             line-height: 1.8;
+            color: #444;
         }
 
         img {
             display: block;
-            margin: 20px auto;
+            margin: 30px auto;
             border-radius: 50%;
-            border: 8px solid #008cba;
+            border: 8px solid #ff4747;
             width: 240px;
             height: 240px;
             object-fit: cover;
@@ -133,17 +138,18 @@
             list-style-type: none;
             padding: 0;
             text-align: center;
+            margin-top: 30px;
         }
 
         ul li {
             display: inline-block;
             margin: 10px;
-            padding: 15px 20px;
-            background: linear-gradient(90deg, #008cba, #005f99);
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #ff4747, #ff8f4e);
             color: white;
             border-radius: 10px;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.1em;
             transition: transform 0.3s ease, background 0.3s ease;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -151,7 +157,7 @@
 
         ul li:hover {
             transform: scale(1.1);
-            background: linear-gradient(90deg, #005f99, #003f66);
+            background: linear-gradient(90deg, #ff8f4e, #ff4747);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -176,7 +182,7 @@
         }
 
         th {
-            background: #008cba;
+            background: #ff4747;
             color: #fff;
             text-transform: uppercase;
         }
@@ -192,11 +198,11 @@
             color: white;
             margin-top: 20px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-            border-top: 5px solid #ff6f61;
+            border-top: 5px solid #ff4747;
         }
 
         footer a {
-            color: #ff6f61;
+            color: #ff4747;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
@@ -208,23 +214,23 @@
 
         button {
             display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background: linear-gradient(90deg, #ff6f61, #ff8f4e);
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #ff4747, #ff8f4e);
             color: white;
             border: none;
-            border-radius: 5px;
-            font-size: 1em;
+            border-radius: 8px;
+            font-size: 1.1em;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             position: relative;
         }
 
         button:hover {
-            background: linear-gradient(90deg, #ff8f4e, #ff6f61);
+            background: linear-gradient(90deg, #ff8f4e, #ff4747);
             transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         button:active::after {
@@ -235,7 +241,7 @@
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.3);
-            border-radius: 5px;
+            border-radius: 8px;
             animation: ripple 0.6s linear;
         }
 
