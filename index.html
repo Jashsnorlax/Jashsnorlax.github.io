@@ -11,33 +11,21 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(120deg, #f4f4f4, #e0e0e0);
+            background: linear-gradient(135deg, #e0f7fa, #c1f0c1);
             color: #333;
             line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-bottom: 5px solid #444;
             position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            z-index: 1;
+            background: linear-gradient(90deg, #ff6f61, #ff8f4e);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
@@ -45,14 +33,10 @@
             font-size: 3.5rem;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            z-index: 2;
-            position: relative;
         }
 
         header nav {
             margin-top: 20px;
-            z-index: 2;
-            position: relative;
         }
 
         header nav a {
@@ -65,46 +49,54 @@
 
         header nav a:hover {
             color: #ffd1c1;
+            text-decoration: underline;
         }
 
         main {
             padding: 20px;
             max-width: 1200px;
             margin: auto;
+            position: relative;
         }
 
         section {
             margin-bottom: 30px;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        section h2 {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #2575fc;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #2575fc;
-            display: inline-block;
-            padding-bottom: 5px;
+        section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         section::before {
-            content: "";
+            content: '';
             position: absolute;
             top: -50px;
             right: -50px;
             width: 150px;
             height: 150px;
-            background: rgba(37, 117, 252, 0.1);
+            background: radial-gradient(circle, rgba(255, 126, 95, 0.5), rgba(255, 126, 95, 0));
             border-radius: 50%;
             z-index: 1;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #008cba;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #008cba;
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
         p {
@@ -119,17 +111,17 @@
             display: block;
             margin: 20px auto;
             border-radius: 50%;
-            border: 8px solid #2575fc;
-            width: 220px;
-            height: 220px;
+            border: 8px solid #008cba;
+            width: 240px;
+            height: 240px;
             object-fit: cover;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         img:hover {
-            transform: rotate(360deg) scale(1.1);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
         }
 
         ul {
@@ -142,9 +134,9 @@
             display: inline-block;
             margin: 10px;
             padding: 15px 20px;
-            background: linear-gradient(90deg, #2575fc, #6a11cb);
+            background: linear-gradient(90deg, #008cba, #005f99);
             color: white;
-            border-radius: 20px;
+            border-radius: 10px;
             font-weight: bold;
             font-size: 1em;
             transition: transform 0.3s ease, background 0.3s ease;
@@ -153,8 +145,8 @@
         }
 
         ul li:hover {
-            transform: scale(1.1) rotate(5deg);
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #005f99, #003f66);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -179,41 +171,41 @@
         }
 
         th {
-            background: #2575fc;
+            background: #008cba;
             color: #fff;
             text-transform: uppercase;
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #f4f4f9;
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(90deg, #444, #666);
+            background: linear-gradient(90deg, #333, #555);
             color: white;
             margin-top: 20px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-            border-top: 5px solid #6a11cb;
+            border-top: 5px solid #ff6f61;
         }
 
         footer a {
-            color: #6a11cb;
+            color: #ff6f61;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: #2575fc;
+            color: #feb47b;
         }
 
         button {
             display: block;
             margin: 20px auto;
             padding: 10px 20px;
-            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            background: linear-gradient(90deg, #ff6f61, #ff8f4e);
             color: white;
             border: none;
             border-radius: 5px;
@@ -224,7 +216,7 @@
         }
 
         button:hover {
-            background: linear-gradient(90deg, #2575fc, #6a11cb);
+            background: linear-gradient(90deg, #ff8f4e, #ff6f61);
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -327,21 +319,6 @@
     <footer id="contact">
         <p>&copy; 2024 Joseph Jash Bacucang. All rights reserved. | <a href="#">Contact Me</a></p>
     </footer>
-
-    <!-- Enhanced JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hobbies = document.querySelectorAll('ul li');
-
-            hobbies.forEach(hobby => {
-                hobby.addEventListener('click', () => {
-                    alert(`You clicked on: ${hobby.textContent}`);
-                });
-            });
-
-            alert('Welcome to my portfolio! Feel free to explore.');
-        });
-    </script>
 </body>
 
 </html>
