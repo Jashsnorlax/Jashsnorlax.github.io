@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Portfolio - Jash Bacucang</title>
+    <title>Enhanced Artistic Portfolio</title>
     <style>
         /* General Styles */
         * {
@@ -17,7 +17,7 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             background: linear-gradient(120deg, #eef2f3, #8e9eab);
-            transition: background 0.5s;
+            overflow-x: hidden;
         }
 
         header {
@@ -28,11 +28,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             font-size: 3rem;
             margin-bottom: 5px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         nav {
@@ -63,121 +65,176 @@
         }
 
         section {
-            margin-bottom: 30px;
-            background: white;
+            margin-bottom: 50px;
+            padding: 40px;
             border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
         }
 
         section h2 {
             text-align: center;
-            color: #008cba;
+            color: white;
             text-transform: uppercase;
             margin-bottom: 20px;
             font-size: 2rem;
-        }
-
-        /* Image Carousel */
-        .carousel {
+            z-index: 10;
             position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
-        .carousel img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s;
-        }
-
-        .carousel:hover img {
-            transform: scale(1.05);
-        }
-
-        .carousel-buttons {
+        /* Background Shapes */
+        section::before,
+        section::after {
+            content: '';
             position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-buttons button {
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 10px 15px;
-            cursor: pointer;
+            z-index: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
             border-radius: 50%;
-            transition: background 0.3s;
+            animation: float 5s infinite ease-in-out;
         }
 
-        .carousel-buttons button:hover {
-            background: rgba(0, 0, 0, 0.8);
+        section::before {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
         }
 
-        /* Skill Bars */
+        section::after {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Backgrounds for Each Section */
+        #about {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+        }
+
+        #hobbies {
+            background: linear-gradient(135deg, #008cba, #005f99);
+            color: white;
+        }
+
+        #skills {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+        }
+
+        #contact {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+        }
+
+        /* Hobbies List */
+        ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        ul li {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Skills Section */
         .skills {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
+            justify-content: space-between;
         }
 
         .skill {
-            width: 45%;
-            margin: auto;
-            padding: 10px 0;
+            width: 30%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: -30px;
+            right: -30px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 50%;
+            z-index: 0;
         }
 
         .skill-title {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: bold;
+            color: white;
+            z-index: 10;
+            position: relative;
         }
 
         .progress {
-            background: #f4f4f4;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
 
         .progress-bar {
             height: 20px;
             width: 0;
-            background: linear-gradient(90deg, #008cba, #005f99);
-            transition: width 1s;
+            background: linear-gradient(90deg, #00ffcc, #00bbaa);
+            animation: fill 2s forwards;
         }
 
-        /* Contact Form */
-        .contact-form input, .contact-form textarea, .contact-form button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .contact-form button {
-            background: linear-gradient(90deg, #ff7e5f, #feb47b);
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: linear-gradient(90deg, #feb47b, #ff7e5f);
-            transform: scale(1.05);
+        @keyframes fill {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
         }
 
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 20px;
             background: #333;
             color: white;
             margin-top: 20px;
@@ -187,9 +244,9 @@
 
 <body>
     <header>
-        <h1>Jash Bacucang Portfolio</h1>
+        <h1>Artistic Portfolio</h1>
         <nav>
-            <a href="#about">About Me</a>
+            <a href="#about">About</a>
             <a href="#hobbies">Hobbies</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
@@ -200,7 +257,7 @@
         <!-- About Section -->
         <section id="about">
             <h2>About Me</h2>
-            <p>Hello! My name is Jash Bacucang. I'm passionate about web development, design, and technology. In my free time, I love to cook, travel, and play games.</p>
+            <p>Hello! My name is Jash Bacucang. I'm passionate about web development, design, and technology.</p>
         </section>
 
         <!-- Hobbies Section -->
@@ -208,15 +265,15 @@
             <h2>Hobbies</h2>
             <ul>
                 <li>Cooking</li>
-                <li>Photography</li>
                 <li>Traveling</li>
-                <li>Playing Sports</li>
+                <li>Photography</li>
+                <li>Playing Games</li>
             </ul>
         </section>
 
         <!-- Skills Section -->
         <section id="skills">
-            <h2>My Skills</h2>
+            <h2>Skills</h2>
             <div class="skills">
                 <div class="skill">
                     <p class="skill-title">HTML</p>
@@ -227,7 +284,7 @@
                 <div class="skill">
                     <p class="skill-title">CSS</p>
                     <div class="progress">
-                        <div class="progress-bar" style="width: 85%;"></div>
+                        <div class="progress-bar" style="width: 80%;"></div>
                     </div>
                 </div>
                 <div class="skill">
@@ -242,12 +299,7 @@
         <!-- Contact Section -->
         <section id="contact">
             <h2>Contact Me</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+            <p>Email me at <a href="mailto:jash@example.com" style="color: #ffd700;">jash@example.com</a></p>
         </section>
     </main>
 
