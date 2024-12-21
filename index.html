@@ -14,6 +14,7 @@
             background: linear-gradient(120deg, #eef2f3, #8e9eab);
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         header {
@@ -32,8 +33,26 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
+        header nav {
+            margin-top: 20px;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ffd1c1;
+        }
+
         main {
             padding: 20px;
+            max-width: 1200px;
+            margin: auto;
         }
 
         section {
@@ -42,19 +61,7 @@
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-left: 8px solid #008cba;
             position: relative;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 8px;
-            background: linear-gradient(180deg, #ff7e5f, #feb47b);
-            border-radius: 0 15px 15px 0;
         }
 
         section h2 {
@@ -115,7 +122,7 @@
         }
 
         table {
-            width: 90%;
+            width: 100%;
             margin: 20px auto;
             border-collapse: collapse;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
@@ -165,7 +172,6 @@
             color: #feb47b;
         }
 
-        /* Custom Button Styles */
         button {
             display: block;
             margin: 20px auto;
@@ -185,12 +191,33 @@
             transform: scale(1.1);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            ul li {
+                font-size: 0.9em;
+                padding: 10px 15px;
+            }
+
+            table, th, td {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <header>
         <h1>Welcome to My Portfolio</h1>
+        <nav>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#family">Family</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
     <main>
@@ -204,7 +231,7 @@
             </p>
         </section>
 
-        <section>
+        <section id="hobbies">
             <h2>My Hobbies</h2>
             <ul>
                 <li>Cooking</li>
@@ -217,7 +244,7 @@
             </ul>
         </section>
 
-        <section>
+        <section id="family">
             <h2>My Family</h2>
             <table>
                 <thead>
@@ -260,7 +287,7 @@
         <button onclick="alert('Thank you for visiting my portfolio!')">Say Hello</button>
     </main>
 
-    <footer>
+    <footer id="contact">
         <p>&copy; 2024 Joseph Jash Bacucang. All rights reserved. | <a href="#">Contact Me</a></p>
     </footer>
 
