@@ -4,49 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Jash Bacucang</title>
+    <title>Enhanced Portfolio - Jash Bacucang</title>
     <style>
-      
-        body {
-            font-family: 'Arial', sans-serif;
+        /* General Styles */
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(120deg, #eef2f3, #8e9eab);
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            background: linear-gradient(120deg, #eef2f3, #8e9eab);
+            transition: background 0.5s;
         }
 
         header {
             background: linear-gradient(90deg, #ff7e5f, #feb47b);
             color: white;
-            padding: 40px 0;
+            padding: 20px 0;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-bottom: 5px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 3rem;
+            margin-bottom: 5px;
         }
 
-        header nav {
-            margin-top: 20px;
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: rgba(0, 0, 0, 0.1);
         }
 
-        header nav a {
-            margin: 0 15px;
-            color: #fff;
+        nav a {
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 15px;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        header nav a:hover {
-            color: #ffd1c1;
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
 
         main {
@@ -61,250 +68,192 @@
             border-radius: 15px;
             padding: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
 
         section h2 {
             text-align: center;
-            margin-bottom: 15px;
             color: #008cba;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid #008cba;
-            display: inline-block;
-            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
 
-        p {
-            text-align: center;
-            max-width: 700px;
-            margin: 20px auto;
-            font-size: 1.2em;
-            line-height: 1.8;
-        }
-
-        img {
-            display: block;
-            margin: 20px auto;
-            border-radius: 50%;
-            border: 5px solid #008cba;
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: center;
-        }
-
-        ul li {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 20px;
-            background: linear-gradient(90deg, #008cba, #005f99);
-            color: white;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1em;
-            transition: transform 0.3s ease, background 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        ul li:hover {
-            transform: scale(1.1);
-            background: linear-gradient(90deg, #005f99, #003f66);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        table {
+        /* Image Carousel */
+        .carousel {
+            position: relative;
             width: 100%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+
+        .carousel:hover img {
+            transform: scale(1.05);
+        }
+
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .carousel-buttons button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Skill Bars */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .skill {
+            width: 45%;
+            margin: auto;
+            padding: 10px 0;
+        }
+
+        .skill-title {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .progress {
+            background: #f4f4f4;
             border-radius: 15px;
             overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        table, th, td {
+        .progress-bar {
+            height: 20px;
+            width: 0;
+            background: linear-gradient(90deg, #008cba, #005f99);
+            transition: width 1s;
+        }
+
+        /* Contact Form */
+        .contact-form input, .contact-form textarea, .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
             border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
-        th, td {
-            padding: 15px;
-            text-align: center;
-            font-size: 1em;
+        .contact-form button {
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        th {
-            background: #008cba;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f4f4f9;
+        .contact-form button:hover {
+            background: linear-gradient(90deg, #feb47b, #ff7e5f);
+            transform: scale(1.05);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            background: linear-gradient(90deg, #333, #555);
+            padding: 10px;
+            background: #333;
             color: white;
             margin-top: 20px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-            border-top: 5px solid #ff7e5f;
-        }
-
-        footer a {
-            color: #ff7e5f;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #feb47b;
-        }
-
-        button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background: linear-gradient(90deg, #ff7e5f, #feb47b);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            background: linear-gradient(90deg, #feb47b, #ff7e5f);
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            ul li {
-                font-size: 0.9em;
-                padding: 10px 15px;
-            }
-
-            table, th, td {
-                font-size: 0.9em;
-                padding: 10px;
-            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Jash Bacucang Portfolio</h1>
         <nav>
+            <a href="#about">About Me</a>
             <a href="#hobbies">Hobbies</a>
-            <a href="#family">Family</a>
+            <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <main>
-        <img src="images/JASH.jpg" alt="Profile Picture">
-
-        <section>
-            <p>
-                Hello! My name is Joseph Jash Bacucang, and I'm passionate about web development and design.
-                I love exploring new technologies and bonding with my friends and family. I also love to cook, travel,
-                play sports, play games, and work out.
-            </p>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! My name is Jash Bacucang. I'm passionate about web development, design, and technology. In my free time, I love to cook, travel, and play games.</p>
         </section>
 
+        <!-- Hobbies Section -->
         <section id="hobbies">
-            <h2>My Hobbies</h2>
+            <h2>Hobbies</h2>
             <ul>
                 <li>Cooking</li>
-                <li>Traveling</li>
                 <li>Photography</li>
-                <li>Playing sports</li>
-                <li>Going to the gym</li>
-                <li>Playing online games</li>
-                <li>Drawing</li>
+                <li>Traveling</li>
+                <li>Playing Sports</li>
             </ul>
         </section>
 
-        <section id="family">
-            <h2>My Family</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Relation</th>
-                        <th>Age</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Joseph Jash Bacucang</td>
-                        <td>Student</td>
-                        <td>18</td>
-                    </tr>
-                    <tr>
-                        <td>Grace Galon</td>
-                        <td>Mother</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td>Eugene Bacucang</td>
-                        <td>Father</td>
-                        <td>39</td>
-                    </tr>
-                    <tr>
-                        <td>Kristoff Bacucang</td>
-                        <td>Little Brother</td>
-                        <td>14</td>
-                    </tr>
-                    <tr>
-                        <td>Eugene Bacucang Jr.</td>
-                        <td>Little Brother</td>
-                        <td>11</td>
-                    </tr>
-                </tbody>
-            </table>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>My Skills</h2>
+            <div class="skills">
+                <div class="skill">
+                    <p class="skill-title">HTML</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p class="skill-title">CSS</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p class="skill-title">JavaScript</p>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <button onclick="alert('Thank you for visiting my portfolio!')">Say Hello</button>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
     </main>
 
-    <footer id="contact">
-        <p>&copy; 2024 Joseph Jash Bacucang. All rights reserved. | <a href="#">Contact Me</a></p>
+    <footer>
+        <p>&copy; 2024 Jash Bacucang. All rights reserved.</p>
     </footer>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const hobbies = document.querySelectorAll('ul li');
-
-            hobbies.forEach(hobby => {
-                hobby.addEventListener('click', () => {
-                    alert(`You clicked on: ${hobby.textContent}`);
-                });
-            });
-
-            alert('Welcome to my portfolio! Feel free to explore.');
-        });
-    </script>
 </body>
 
 </html>
